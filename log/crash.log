@@ -1,0 +1,209 @@
+2020-10-14 17:05:54 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryScans.Broadway.ProducerSupervisor'}
+     Context:    start_error
+     Reason:     {{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryScans.Broadway.Producer_0'},{mfargs,{'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.RetryScans'},{producer,[{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,1}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}],0,[{name,'Elixir.RetryScans.Broadway.Producer_0'},{hibernate_after,15000}]]}},{restart_type,permanent},{shutdown,30000},{child_type,worker}]
+
+2020-10-14 17:05:54 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryScans.Broadway.Supervisor'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}
+     Offender:   [{pid,undefined},{id,#Ref<0.1914793777.4291297286.225960>},{mfargs,{'Elixir.Supervisor',start_link,[[#{id => 'Elixir.RetryScans.Broadway.Producer_0',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.RetryScans'},{producer,[{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,1}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}],0,[{name,'Elixir.RetryScans.Broadway.Producer_0'},{hibernate_after,15000}]]}},#{id => 'Elixir.RetryScans.Broadway.Producer_1',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.RetryScans'},{producer,[{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,1}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}],1,[{name,'Elixir.RetryScans.Broadway.Producer_1'},{hibernate_after,15000}]]}}],[{name,'Elixir.RetryScans.Broadway.ProducerSupervisor'},{strategy,one_for_one},{max_restarts,4},{max_seconds,2}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2020-10-14 17:05:54 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.GenStage:init/1
+    pid: <0.282.0>
+    registered_name: []
+    exception error: {{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}
+    ancestors: ['Elixir.RetryScans.Broadway.ProducerSupervisor','Elixir.RetryScans.Broadway.Supervisor','Elixir.RetryScans',<0.94.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.281.0>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}]
+    links: []
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 677
+  neighbours:
+2020-10-14 17:05:54 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.Broadway.Topology:init/1
+    pid: <0.279.0>
+    registered_name: []
+    exception error: {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.1914793777.4291297286.225960>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.94.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.280.0>,{shutdown,{failed_to_start_child,#Ref<0.1914793777.4291297286.225960>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}}}]
+    links: [<0.94.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 2586
+    stack_size: 28
+    reductions: 971
+  neighbours:
+    neighbour: [{pid,<0.95.0>},{registered_name,[]},{initial_call,{'Elixir.Kernel.LexicalTracker',init,['Argument__1']}},{current_function,{gen_server,loop,7}},{ancestors,[<0.94.0>]},{message_queue_len,0},{links,[<0.94.0>]},{trap_exit,false},{status,waiting},{heap_size,233},{stack_size,12},{reductions,140},{current_stacktrace,[{gen_server,loop,7,[{file,"gen_server.erl"},{line,437}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}]
+    neighbour: [{pid,<0.94.0>},{registered_name,[]},{initial_call,{erlang,apply,2}},{current_function,{code_server,call,1}},{ancestors,[]},{message_queue_len,0},{links,[<0.95.0>,<0.279.0>]},{trap_exit,false},{status,waiting},{heap_size,4185},{stack_size,61},{reductions,801750},{current_stacktrace,[{code_server,call,1,[{file,"code_server.erl"},{line,139}]},{error_handler,undefined_function,3,[{file,"error_handler.erl"},{line,41}]},{'Elixir.Mix.Tasks.JobsDemo',run,1,[{file,"lib/mix/tasks/jobs_demo.ex"},{line,23}]},{'Elixir.Mix.Task',run_task,3,[{file,"lib/mix/task.ex"},{line,330}]},{'Elixir.Mix.CLI',run_task,2,[{file,"lib/mix/cli.ex"},{line,82}]},{elixir_compiler,dispatch,4,[{file,"src/elixir_compiler.erl"},{line,75}]},{elixir_compiler,compile,3,[{file,"src/elixir_compiler.erl"},{line,60}]},{elixir_lexical,run,3,[{file,"src/elixir_lexical.erl"},{line,15}]}]}]
+2020-10-14 17:37:01 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryScans.Broadway.ProducerSupervisor'}
+     Context:    start_error
+     Reason:     {{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryScans.Broadway.Producer_0'},{mfargs,{'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.RetryScans'},{producer,[{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,1}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}],0,[{name,'Elixir.RetryScans.Broadway.Producer_0'},{hibernate_after,15000}]]}},{restart_type,permanent},{shutdown,30000},{child_type,worker}]
+
+2020-10-14 17:37:01 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.GenStage:init/1
+    pid: <0.326.0>
+    registered_name: []
+    exception error: {{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}
+    ancestors: ['Elixir.RetryScans.Broadway.ProducerSupervisor','Elixir.RetryScans.Broadway.Supervisor','Elixir.RetryScans','Elixir.RetryBroadway.Supervisor',<0.321.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.325.0>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}]
+    links: []
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 657
+  neighbours:
+2020-10-14 17:37:01 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryScans.Broadway.Supervisor'}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}
+     Offender:   [{pid,undefined},{id,#Ref<0.4057180116.2686189575.160383>},{mfargs,{'Elixir.Supervisor',start_link,[[#{id => 'Elixir.RetryScans.Broadway.Producer_0',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.RetryScans'},{producer,[{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,1}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}],0,[{name,'Elixir.RetryScans.Broadway.Producer_0'},{hibernate_after,15000}]]}},#{id => 'Elixir.RetryScans.Broadway.Producer_1',shutdown => 30000,start => {'Elixir.Broadway.Topology.ProducerStage',start_link,[[{broadway,[{hibernate_after,15000},{batchers,[]},{context,context_not_set},{resubscribe_interval,100},{max_seconds,5},{max_restarts,3},{shutdown,30000},{name,'Elixir.RetryScans'},{producer,[{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}]},{processors,[{default,[{hibernate_after,15000},{max_demand,10},{concurrency,1}]}]}]},{dispatcher,'Elixir.GenStage.DemandDispatcher'},{hibernate_after,15000},{transformer,nil},{module,{'Elixir.BroadwayRabbitMQ.Producer',[{on_failure,reject},{metadata,[routing_key,headers]},{queue,<<"retry">>},{connection,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},{qos,[{prefetch_count,50}]}]}},{concurrency,2}],1,[{name,'Elixir.RetryScans.Broadway.Producer_1'},{hibernate_after,15000}]]}}],[{name,'Elixir.RetryScans.Broadway.ProducerSupervisor'},{strategy,one_for_one},{max_restarts,4},{max_seconds,2}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2020-10-14 17:37:01 =CRASH REPORT====
+  crasher:
+    initial call: Elixir.Broadway.Topology:init/1
+    pid: <0.323.0>
+    registered_name: []
+    exception error: {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.4057180116.2686189575.160383>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: ['Elixir.RetryBroadway.Supervisor',<0.321.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.324.0>,{shutdown,{failed_to_start_child,#Ref<0.4057180116.2686189575.160383>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}}}]
+    links: [<0.322.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 2586
+    stack_size: 28
+    reductions: 952
+  neighbours:
+2020-10-14 17:37:01 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryBroadway.Supervisor'}
+     Context:    start_error
+     Reason:     {{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.4057180116.2686189575.160383>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryBroadway.Processors.RetryProcessor'},{mfargs,{'Elixir.RetryBroadway.Processors.RetryProcessor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2020-10-14 17:37:01 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.320.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.RetryBroadway.Processors.RetryProcessor',{{badmatch,{error,{shutdown,{failed_to_start_child,#Ref<0.4057180116.2686189575.160383>,{shutdown,{failed_to_start_child,'Elixir.RetryScans.Broadway.Producer_0',{{case_clause,{ok,[{port,5672},{host,<<"localhost">>},{username,<<"guest">>},{password,<<"guest">>}]}},[{'Elixir.BroadwayRabbitMQ.AmqpClient',validate_conn_opts,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,200}]},{'Elixir.BroadwayRabbitMQ.AmqpClient',init,1,[{file,"lib/broadway_rabbitmq/amqp_client.ex"},{line,43}]},{'Elixir.BroadwayRabbitMQ.Producer','init_client!',2,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,456}]},{'Elixir.BroadwayRabbitMQ.Producer',init,1,[{file,"lib/broadway_rabbitmq/producer.ex"},{line,212}]},{'Elixir.Broadway.Topology.ProducerStage',init,1,[{file,"lib/broadway/topology/producer_stage.ex"},{line,69}]},{'Elixir.GenStage',init,1,[{file,"lib/gen_stage.ex"},{line,1704}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]}]}}}}}}},[{'Elixir.Broadway.Topology',init,1,[{file,"lib/broadway/topology.ex"},{line,37}]},{gen_server,init_it,2,[{file,"gen_server.erl"},{line,417}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,385}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}}},{'Elixir.RetryBroadway.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.319.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.321.0>,normal}]
+    links: [<0.319.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 28
+    reductions: 281
+  neighbours:
+2020-10-14 17:42:58 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryBroadway.Supervisor'}
+     Context:    start_error
+     Reason:     {already_started,<0.287.0>}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryBroadway.Processors.JobsProcessor'},{mfargs,{'Elixir.RetryBroadway.Processors.JobsProcessor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2020-10-14 17:42:58 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.284.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.RetryBroadway.Processors.JobsProcessor',{already_started,<0.287.0>}}},{'Elixir.RetryBroadway.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.283.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.285.0>,normal}]
+    links: [<0.283.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 28
+    reductions: 202
+  neighbours:
+2020-10-14 17:44:17 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryBroadway.Supervisor'}
+     Context:    start_error
+     Reason:     {already_started,<0.273.0>}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryBroadway.Processors.JobsProcessor'},{mfargs,{'Elixir.RetryBroadway.Processors.JobsProcessor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2020-10-14 17:44:18 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.270.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.RetryBroadway.Processors.JobsProcessor',{already_started,<0.273.0>}}},{'Elixir.RetryBroadway.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.269.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.271.0>,normal}]
+    links: [<0.269.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 28
+    reductions: 202
+  neighbours:
+2020-10-14 17:44:44 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryBroadway.Supervisor'}
+     Context:    start_error
+     Reason:     {already_started,<0.262.0>}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryBroadway.Processors.JobsProcessor'},{mfargs,{'Elixir.RetryBroadway.Processors.JobsProcessor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2020-10-14 17:44:45 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.259.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.RetryBroadway.Processors.JobsProcessor',{already_started,<0.262.0>}}},{'Elixir.RetryBroadway.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.258.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.260.0>,normal}]
+    links: [<0.258.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 28
+    reductions: 205
+  neighbours:
+2020-10-14 18:11:34 =SUPERVISOR REPORT====
+     Supervisor: {local,'Elixir.RetryBroadway.Supervisor'}
+     Context:    start_error
+     Reason:     {already_started,<0.273.0>}
+     Offender:   [{pid,undefined},{id,'Elixir.RetryBroadway.Processors.JobsProcessor'},{mfargs,{'Elixir.RetryBroadway.Processors.JobsProcessor',start_link,[[]]}},{restart_type,permanent},{shutdown,infinity},{child_type,worker}]
+
+2020-10-14 18:11:34 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.270.0>
+    registered_name: []
+    exception exit: {{{shutdown,{failed_to_start_child,'Elixir.RetryBroadway.Processors.JobsProcessor',{already_started,<0.273.0>}}},{'Elixir.RetryBroadway.Application',start,[normal,[]]}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,226}]}]}
+    ancestors: [<0.269.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.271.0>,normal}]
+    links: [<0.269.0>,<0.44.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 28
+    reductions: 210
+  neighbours:
