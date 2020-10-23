@@ -54,6 +54,8 @@ defmodule RetryBroadway.Processors.UsersProcessor do
 
       true ->
         # message processed successfully
+        # this is where the message is processed more, or batched, or publisehd to a
+        # results / completed queue
         IO.puts("Passing User data with a value of #{data} ")
         message
     end

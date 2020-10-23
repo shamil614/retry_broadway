@@ -6,7 +6,7 @@ defmodule Mix.Tasks.UsersDemo do
   alias RetryBroadway.Topology
   alias AMQP.{Basic, Connection, Queue}
 
-  @shortdoc "Demo jobs retry"
+  @shortdoc "Demo users retry"
   def run(_) do
     Application.ensure_all_started(:retry_broadway)
 
