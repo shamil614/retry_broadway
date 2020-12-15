@@ -1,14 +1,14 @@
 # Rabbitmq Retries Made Easy with Delayed Message Exchange Plugin and Elixir's Broadway
 
 ## Introduction
-If you ever needed to distrubute work to multiple nodes then you probably used or considered using RabbitMQ.
+If you ever needed to distribute work to multiple nodes then you probably used or considered using RabbitMQ.
 RabbitMQ is easily one the most versatile and reliable message brokers available. 
 As many know it's so reliable because it's built with Erlang and OTP.
 While RabbitMQ has many features, handling and retrying failed messages is not one of them.
 Recently I developed a solution that leverages core RabbitMQ features 
 along with a plugin to develop a clear and concise retry pattern for failed or rejected messages.
 While this blog post uses Elixir's Broadway for processing messages, 
-the overall retry pattern can easily be applied for any other language or implmentation.
+the overall retry pattern can easily be applied for any other language or implementation.
 You can find the [RetryBroadway code](https://github.com/shamil614/retry_broadway) on Github.
 
 ## Core Components
@@ -18,8 +18,8 @@ In short, a message can be republished to a dlx (an exchange) for several failur
 AMQP reject, nack, or TTL reached because the message did not get acknowledged. 
 
 The second component is a RabbitMQ plugin called Delayed Message Exchange Plugin (dm).
-The dm plugin add additional functionality to a standard RabbitMQ exchange to delay the delivery to a queue.
-Essentially the plugin provides a mechanism to delay the retrying of a failed message.
+The dm plugin adds functionality to a standard RabbitMQ exchange to delay the delivery to a queue.
+Essentially, the plugin provides a mechanism to delay the retrying of a failed message.
 Delaying the reprocessing of a message is important because it allows for implementing backoff when retrying 
 failed messages.
 
@@ -27,7 +27,7 @@ The third component is a retry pipeline (processor).
 The retry pipeline checks a queue for failed messages then republishes the message to the original exchange.
 Before republishing, the retry pipeline sets a `x-delay` delay header so the dm exchange knows how long to delay
 the message. Most importantly, the retry pipeline is in charge of deciding when to stop republishing the message. 
-At some point retrying a failed message must stop and this pipeline provides a programatic mechanism for deciding 
+At some point retrying a failed message must stop and this pipeline provides a programmatic mechanism for deciding 
 when to give up. Overall the pipeline provides a single location for the retry logic. 
 
 ## Workflow
@@ -128,7 +128,7 @@ queues_topics
     )
 end)
 ```
-Now this code creates the `jobs` and `users` queue but also delcares (creates) the dlx by setting the header
+Now this code creates the `jobs` and `users` queue but also declares (creates) the dlx by setting the header
 `x-dead-letter-exchange` to `retry` by calling `retry_exchange()`. This important. Here at the queue level
 the dlx is specified so any failing message is routed by RabbitMQ to the dlx. Which is really nice because it's
 hard to mess up. Of course, it's marked as `durable`.
