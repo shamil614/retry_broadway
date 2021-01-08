@@ -32,8 +32,31 @@ when to give up. Overall the pipeline provides a single location for the retry l
 
 ## Workflow
 In an effort to clarify the components described above, here's a diagram that illustrates a happy path and a retry path.
+This blog post describes a workflow for jobs and users. While the diagram covers users, the logic applies to jobs
+as well.
 
 <img src="./generic_broadway_pipeline_with_retry.svg">
+
+For the "happy path", when a user is updated in the front end application, a message is published to the main exchange.
+The first message has zero delay, so it is immediately routed to the users queue.
+The users processor in the worker app processes this message and produces some result.
+To be clear, the users processor can do anything with the result (store it in the database, publish to results queue).
+The above diagram illustrates one example where the result is sent back to the main exchange,
+again with zero delay, and is routed to the results queue,
+then processed by the front end application.
+
+For the "retry path", the first message follows the same path until it reaches the users processor in the worker app.
+Here, some processing failure occurs. Because the users queue has a dead letter exchange configured,
+the rejected message is republished to the retry exchange then routed to the retry queue.
+The retry processor examines retry count and decides to republish it,
+this time with some delay and with its retry count incremented.
+After the delay, the message is routed again to the users queue for a second try.
+This process continues until either a result is successfully published,
+or the retry processor decides not to republish the message because retry count reached the max retries
+
+Lastly please note, that the demo code is not actually publishing to a results queue.
+For the same of simplicity, the processors just print a message instead of publishing the result,
+or storing in a database.
 
 ## Topology
 This section covers the `setup.ex` mix task that builds out the topology for the demo.
@@ -388,6 +411,8 @@ and processed by the `RetryProcessor`.
 
       true ->
         # message processed successfully
+        # this is where the message is processed more, or batched, or published to a
+        # results / completed queue
         IO.puts("Passing Jobs data with a value of #{data} ")
         message
     end
@@ -401,6 +426,16 @@ exception results the same retry workflow. See the
 The second condition fakes a scenario where the message passes on a second try.
 See the [`fake_retry_behaviour/2`](https://github.com/shamil614/retry_broadway/blob/master/lib/retry_broadway/processors/retry_processor.ex#L83-L94).
 Again, this a contrived example that allows for demonstration of the retry workflow.
+
+## Wrapping Up
+While this particular solution fit my use case, it may not be the proper solution for you.
+Blog post examples are great, but they aren't always a "one size fits all" solution. There are a few caveats to this
+approach that might be a deal breaker.
+1. You have to use the delayed exchange plugin with RabbitMQ. You may not be able to install that plugin on your
+production env. Last I checked, AWS SQS doesn't allow for the delayed exchange plugin.
+2. The plugin itself has known [limitations](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange#limitations)
+around performance limitations for hundreds of thousands of messages.
+3. If RabbitMQ crashes, the message can survive, but the delay timers won't.
 
 Ok that's enough explaining. Now it's time to give it a try yourself and see the retry workflow in action.
 Take a look at the [README](https://github.com/shamil614/retry_broadway/blob/master/README.md) for directions

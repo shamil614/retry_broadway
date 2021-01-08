@@ -55,6 +55,8 @@ defmodule RetryBroadway.Processors.JobsProcessor do
 
       true ->
         # message processed successfully
+        # this is where the message is processed more, or batched, or published to a
+        # results / completed queue
         IO.puts("Passing Jobs data with a value of #{data} ")
         message
     end
